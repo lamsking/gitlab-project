@@ -1,0 +1,16 @@
+ARG version="latest"
+FROM nginx:${version}
+
+LABEL maintainer="lamsking"
+
+RUN apt-get upgate && \
+    apt-get install -y git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN rm -rf /usr/share/nginx/html/* \
+    && git clone https://github.com/diranetafen/static-website-exemple.git /usr/share/nginx/html/
+
+EXPOSE 80
+
+ENTRYPOINT [ "/usr/sbin/nginx", "-g", "daemon off;" ]
