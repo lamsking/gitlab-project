@@ -94,7 +94,7 @@ Deploy Staging:
     SERVER_IP: ''
   image: alpine
   <<: *deploy_app
-  environemen:
+  environment:
     name: Staging
 
 Deploy Production:
@@ -103,5 +103,5 @@ Deploy Production:
     SERVER_IP: ''
   image: alpine
   <<: *deploy_app
-  environemen:
+  environment:
     name: Production
